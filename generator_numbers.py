@@ -1,8 +1,9 @@
 import re
 from typing import Callable
 
-def generator_numbers(text:str):                                      
-    numbers= re.findall(r'[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?' ,text) # використовуємо регулярний вираз для знаходження чисел у тексті
+def generator_numbers(text:str): 
+    numbers = text.split()                                     
+    numbers= re.findall(r'\s\d+.\d+\s', text)    #[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?'  використовуємо регулярний вираз для знаходження чисел у тексті
     for number in numbers:  
         yield number            #вертаємо число зі списку у форматі string
         
