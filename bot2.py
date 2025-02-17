@@ -24,20 +24,8 @@ def input_error(func):
             return func(*args, **kwargs)
         except ValueError:
             return "Enter the argument for the command"
-    return inner
-
-def input_error_index(func):
-    def inner(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
         except IndexError:
             return "Enter the argument for the command"
-    return inner
-
-def input_error_key(func):
-    def inner(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
         except KeyError:
             return "Enter the argument for the command"
     return inner
@@ -66,9 +54,7 @@ def change_number(args,contacts): # функція зміни контакту
     else:
           return "Enter the argument for the command"
     
-@input_error_key
-@input_error
-@input_error_index      
+@input_error   
 def view_number(args,contacts): # функція перегляду номеру телефону конкретного користувача
     name = args[0]              # і'мя йде першим у списку argv, потім телефон
     number = contacts[name]     # номер телефону виводимо за ключем "ім'я"
